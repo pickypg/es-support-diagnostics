@@ -62,6 +62,7 @@ For the nodes array, each node in the cluster will have an entry that contains t
 * Logback is used for logging, and the configuration is contained in the logback.xml file in the root directory of the jar file.  If you wish to modify these commands or add additional ones you can specify an alternative configuration file via -l or --logConfig along with the filename.  As with the output directory, please make sure this is an absolute path.
 * Unless the log file is modified to change the output file, detailed logging and diagnostics will be written to <user home>/es-diags/logs/stats.log.
 * If you have made changes to the cluster, such as adding or removing a node, changing a host name or ip, etc., you can regenerate just the manifest file by using -g, -gen, or -genManifest. Only the flag is used, no additional input is necessary.
+
 ### Help command content
 ``````
 Usage: <main class> [options]
@@ -113,6 +114,7 @@ Similar to diagnostics-stats, it will write the responses from each of these to 
 * Unless the log file is modified to change the output file, detailed logging and diagnostics will be written to <user home>/es-diags/logs/collector.log.
 * The commands used to retrieve the system related stats are contained in the cmds.yml in the root directory of the jar file.  If you wish to modify these commands or add additional ones you can specify an alternative configuration file using -c or --commandConfig along with the filename .  As with the output directory, please make sure this is an absolute path.
 * Logback is used for logging, and the configuration is contained in the logback.xml file in the root directory of the jar file.  If you wish to modify these commands or add additional ones you can specify an alternative configuration file via -l or --logConfig along with the filename.  As with the output directory, please make sure this is an absolute path.
+
 ### Help command content
 ```
 Usage: <main class> [options]
