@@ -27,7 +27,7 @@ The support diagnostic utilities consists of two self contained, executable Java
 
 ## Usage instructions
 ### diagnostics-stats overview
-The diagnostic-stats application performs two functions.  First it will execute a series of HTTP or HTTPS REST requests to a specified node in the cluster to be diagnosed.  It will write the responses from each of these to a file in a temporary directory, archive the output, and then delete the temp directory.  The file name will always be named <cluster name>.zip.  If the application is run twice, the second run will remove the previous output if it is present, so if you wish to preserve previous runs you will need to rename the file prior to running again.
+The diagnostic-stats application performs two functions.  First it will execute a series of HTTP or HTTPS REST requests to a specified node in the cluster to be diagnosed.  It will write the responses from each of these to a file in a temporary directory, archive the output, and then delete the temp directory.  The file will always be named <cluster name>.zip.  If the application is run twice, the second run will remove the previous zip file if it is present, so if you wish to preserve previous runs you will need to rename the existing file prior to running again.
 
 It will also produce a file with the name format <cluster name>-manifest.json.  This file contains information about the where the diagnostic artifacts such as log and configuration files that must be obtained from the individual hosts the nodes are installed on.  This file will be used as an input for the diagnostics-collector, which should then be run on the host where the nodes for which you need logs and configuration files are installed.  You do not require separate manifests for each host.  One manifest will work for all the host/node combinations in the cluster.  It will have the format:
 ```
@@ -47,7 +47,7 @@ It will also produce a file with the name format <cluster name>-manifest.json.  
   ]
 }
 ```
-For the nodes array, each node in the cluster will have an entry that contains the specifics of that nodes configuration.  Note that if you have not explicitly set these values and are running with defaults you may not see values here.
+For the nodes array, each node in the cluster will have an entry that contains the specifics of that nodes configuration.  Note that if you have not explicitly set these values and are running with defaults you may not see values here.  As with the zip archive, new runs will replace the old file.
 ### diagnostics-stats step by step
 * Copy the diagnostics-stats.jar to the directory from which you intend to run the application.  You will need sufficient permissions to execute the application.
 * Run the application with *java -jar diagnostic-stats.jar -n <host or IP address>*
